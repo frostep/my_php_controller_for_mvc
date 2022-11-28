@@ -1,0 +1,12 @@
+{
+  "autoload": {
+    "psr-4": {
+      "wfm\\": "vendor/wfm",
+      "app\\": "app"
+    }
+  },
+  "require": {
+    "friendsofphp/php-cs-fixer": "^3.12",
+    "gabordemooij/redbean": "^v5.7.3"
+  }
+}
