@@ -1,21 +1,25 @@
-
+<?php declare(strict_types=1);
+if (!empty($slides)) { ?>
 <div class="container-fluid my-carousel">
 			<div id="carouselExampleIndicators" class="carousel slide carousel-fade" data-bs-ride="carousel" data-bs-interval="5000">
 				<div class="carousel-indicators">
-					<button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-					<button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
-					<button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+					<?php for ($i = 0; $i < count($slides); ++$i) { ?>
+						<button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="<?php echo $i; ?>" <?php if (0 == $i) {
+						    echo 'class="active"';
+						} ?> aria-current="true" aria-label="Slide <?php echo $i; ?>"></button>
+					<?php } ?>
 				</div>
+
 				<div class="carousel-inner">
-					<div class="carousel-item active">
-					<img src="<?php echo PATH; ?>/assets/img/1.jpg" class="d-block w-100" alt="...">
-					</div>
-					<div class="carousel-item">
-						<img src="<?php echo PATH; ?>/assets/img/2.jpg" class="d-block w-100" alt="...">
-					</div>
-					<div class="carousel-item">
-						<img src="<?php echo PATH; ?>/assets/img/3.jpg" class="d-block w-100" alt="...">
-					</div>
+					<?php $i = 1;
+    foreach ($slides as $slide) { ?> 
+						<div class="carousel-item <?php if (1 == $i) {
+						    echo 'active';
+						}?>">
+							<img src="<?php echo PATH.$slide->img; ?>" class="d-block w-100" alt="...">
+						</div>
+					<?php ++$i;
+    } ?>
 				</div>
 				<button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators"  data-bs-slide="prev">
 					<span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -27,6 +31,7 @@
 				</button>
 			</div>
 		</div>
+<?php } ?>
 		<section class="featured-products">
 			<div class="container">
 				<div class="row">

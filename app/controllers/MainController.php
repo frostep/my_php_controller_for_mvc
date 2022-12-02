@@ -14,5 +14,6 @@ class MainController extends AppController
     {
         $slides = R::findAll('slider');
         $this->set(compact('slides'));
+        // compact => ['slides'=>$slides];
     }
 }
